@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const SHeader = styled.header`
 	width: 100%;
+	z-index: 3;
 	height: 80px;
 	background: rgba(30, 30, 30, 0.48);
 	display: flex;
@@ -94,8 +95,14 @@ const SLinkSign = styled(Link)`
 	padding: 12px 32px;
 	background: #d3eaff;
 	transition: 0.7s;
+	box-sizing: border-box;
+	border-radius: 0;
 	&:hover {
-		transform: scale(1.2);
+		transform: scale(1.1);
+	}
+	&:active {
+		transform: none;
+		border-radius: 100%;
 	}
 `
 

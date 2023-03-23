@@ -1,5 +1,13 @@
-import React from 'react'
+import { useRef } from 'react'
+import Banner from '../Banner/Banner'
+import Tours from '../Tours/Tours'
 
 export default function Home() {
-	return <div>Home</div>
+	const toursRef = useRef<HTMLDivElement | null>(null)
+	return (
+		<section>
+			<Banner toursRef={toursRef} />
+			<Tours toursRef={toursRef} />
+		</section>
+	)
 }
