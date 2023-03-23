@@ -79,9 +79,18 @@ const SLinkFav = styled(Link)`
 	height: 48px;
 	margin-right: 12px;
 	transition: 0.7s;
+	background: #ececec;
 	&:hover {
 		transform: scale(1.2);
 	}
+	& img {
+		width: 24px;
+		height: 24px;
+		margin: 12px 12px;
+	}
+`
+const SLinkFavActive = styled(SLinkFav)`
+	background: #dd377d;
 `
 const SLinkSign = styled(Link)`
 	font-family: 'Syne';
@@ -124,9 +133,15 @@ export default function Header() {
 				<SLink to={'#'}>HELP</SLink>
 			</SNav>
 			<SLinkContainer>
-				<SLinkFav to={'/favorites'}>
-					<img src="assets/heart.png" alt="Favorites" />
-				</SLinkFav>
+				{location.pathname === '/favorites' ? (
+					<SLinkFavActive to={'/favorites'}>
+						<img src="assets/heart.png" alt="Favorites" />
+					</SLinkFavActive>
+				) : (
+					<SLinkFav to={'/favorites'}>
+						<img src="assets/heart.png" alt="Favorites" />
+					</SLinkFav>
+				)}
 				<SLinkSign to={'#'}>
 					<div>SIGN IN</div>
 				</SLinkSign>

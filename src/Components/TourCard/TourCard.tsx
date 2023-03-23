@@ -1,4 +1,6 @@
+import { useRecoilState, useSetRecoilState } from 'recoil'
 import styled from 'styled-components'
+import { favoritesState } from '../../recoilstate'
 import IRocket from '../../utils/IRocket'
 
 const SCard = styled.div`
@@ -70,6 +72,9 @@ export default function TourCard({
 	rocket: IRocket
 	index: number
 }) {
+	const favorites = useRecoilState(favoritesState)
+	const setFavorites = useSetRecoilState(favoritesState)
+
 	return (
 		<SCard>
 			<SCardImg
@@ -80,8 +85,30 @@ export default function TourCard({
 			<SCardPara>{rocket.description}</SCardPara>
 			<ButtonsContainer>
 				<BuyButton>BUY</BuyButton>
-				<FavButton>
-					<img src="assets/heart.png" alt="add to favorites" />
+				<FavButton
+					onClick={() => {
+						setFavorites((old) =>
+							favorites[0].find((item) => item['id'] === rocket.id)
+								? [...old.filter((item) => item['id'] !== rocket.id)]
+								: [
+										...old.filter((item) => item['id'] !== rocket.id),
+										{
+											id: rocket.id,
+											name: rocket.name,
+											description: rocket.description,
+										} as never,
+								  ]
+						)
+					}}
+				>
+					<img
+						src={
+							favorites[0].find((item) => item['id'] === rocket.id)
+								? 'assets/bin.png'
+								: 'assets/heart.png'
+						}
+						alt="add to favorites"
+					/>
 				</FavButton>
 			</ButtonsContainer>
 		</SCard>

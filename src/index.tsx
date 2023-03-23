@@ -11,22 +11,26 @@ import {
 	InMemoryCache,
 } from '@apollo/client'
 import './index.css'
+import { atom, RecoilRoot } from 'recoil'
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 const client = new ApolloClient({
 	uri: 'https://spacex-production.up.railway.app/',
 	cache: new InMemoryCache(),
 })
+
 root.render(
 	<React.StrictMode>
-		<ApolloProvider client={client}>
-			<HashRouter>
-				<Routes>
-					<Route path="/" element={<App />}>
-						<Route index element={<Home />} />
-						<Route path="favorites" element={<Favorites />} />
-					</Route>
-				</Routes>
-			</HashRouter>
-		</ApolloProvider>
+		<RecoilRoot>
+			<ApolloProvider client={client}>
+				<HashRouter>
+					<Routes>
+						<Route path="/" element={<App />}>
+							<Route index element={<Home />} />
+							<Route path="favorites" element={<Favorites />} />
+						</Route>
+					</Routes>
+				</HashRouter>
+			</ApolloProvider>
+		</RecoilRoot>
 	</React.StrictMode>
 )

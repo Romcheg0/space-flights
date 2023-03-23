@@ -1,5 +1,4 @@
-import React, { RefObject, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { RefObject, useState } from 'react'
 import styled from 'styled-components'
 
 const BannerDiv = styled.div`
@@ -99,7 +98,7 @@ const SLinkTours = styled.span`
 	cursor: pointer;
 `
 
-export default function Banner<HTMLElement>({
+export default function Banner({
 	toursRef,
 }: {
 	toursRef: RefObject<HTMLDivElement> | null
