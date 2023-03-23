@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Romcheg0/space-flights/static/css/main.94948b7b.css",
+    "main.js": "/Romcheg0/space-flights/static/js/main.213909aa.js",
+    "index.html": "/Romcheg0/space-flights/index.html",
+    "main.94948b7b.css.map": "/Romcheg0/space-flights/static/css/main.94948b7b.css.map",
+    "main.213909aa.js.map": "/Romcheg0/space-flights/static/js/main.213909aa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.94948b7b.css",
+    "static/js/main.213909aa.js"
+  ]
+}
